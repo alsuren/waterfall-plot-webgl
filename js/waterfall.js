@@ -2,7 +2,7 @@ class Waterfall {
     constructor() {
         this.config = {
             n_lines         :   50,
-            new_line_freq_hz:   15,
+            new_line_freq_hz:   1,
             speed           :    3,
 
             fft_size        : 512,
