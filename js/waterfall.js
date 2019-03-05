@@ -51,13 +51,16 @@ class Waterfall {
         this.init_audio();
 
         document.onkeypress = this.key_pressed.bind(this);
+        this._char_pressed('c');
     }
 
     key_pressed(event) {
         event = event || window.event;
         const code = event.keyCode || event.which;
         const char = String.fromCharCode(code);
-
+        this._char_pressed(char);
+    }
+    _char_pressed(char) {
         const line = (color) => {
             this.config.line_use_uniform_shader = true;
             this.config.line_color = color;
