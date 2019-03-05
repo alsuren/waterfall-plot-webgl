@@ -52,7 +52,8 @@ class Audio {
     }
 
     init() {
-        this.context = new window.AudioContext();
+        var context = new window.AudioContext();
+        this.context = context;
         this.fft_window_size = this.get_fft_window_size();
 
         if (navigator.mediaDevices.getUserMedia) {
@@ -65,5 +66,8 @@ class Audio {
         } else {
             alert('Error getting audio');
         }
+        document.querySelector('canvas').addEventListener('click', function () {
+            context.resume()
+        });
     }
 }
