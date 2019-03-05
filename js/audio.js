@@ -22,14 +22,15 @@ class Audio {
     }
 
     got_stream(stream) {
-        this.input_point = this.context.createGain();
+        // this.input_point = this.context.createGain();
         this.input = this.context.createMediaStreamSource(stream);
-        this.input.connect(this.input_point);
+        // this.input.connect(this.input_point);
 
         this.analyser = this.context.createAnalyser();
         this.analyser.fft_size = this.fft_size;
         this.freq_byte_data = new Uint8Array(this.analyser.frequencyBinCount);
-        this.input_point.connect(this.analyser);
+        // this.input_point.connect(this.analyser);
+        this.input.connect(this.analyser);
     }
 
     get_fft_window_size() {
